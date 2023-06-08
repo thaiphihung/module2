@@ -1,0 +1,23 @@
+<p id = "so"></p>
+<script>
+    var number = [];
+    for (var i = 0; i <= 100; i++) {
+        number.push(i);
+    }
+    var L = 0;
+    var R = number.length - 1;
+    var M = Math.floor((L + R) / 2);
+    document.getElementById("so").innerHTML = "Số đó có phải là " + number[M] + " không";
+    function nho_hon(){
+        R = M - 1;
+        M = Math.floor((L + R) / 2);
+        document.getElementById("so").innerHTML = "Số đó có phải là " + number[M] + " không";
+    }
+    function lon_hon(){
+        L = M + 1;
+        M = Math.floor((L + R) / 2);
+        document.getElementById("so").innerHTML = "Số đó có phải là " + number[M] + " không";
+    }
+</script>
+<button onclick ="nho_hon()">Nhỏ hơn</button>
+<button onclick="lon_hon()">Lớn hơn</button>
