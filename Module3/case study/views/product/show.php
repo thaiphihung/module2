@@ -1,24 +1,48 @@
-</form>
-<table class = 'table'> 
-    <tr class = 'table-active'>
-        <th>ID</th>
-        <th>Ảnh</th>
-        <th>Tên Sản Phẩm</th>
-        <th>Mã Hàng</th>
-        <th>Thương Hiệu</th>
-        <th>Giá</th>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+<!-- <table class="table">
+    <tr class="table-dark">
+        <th scope="col">Ảnh</th>
     </tr>
     <tr>
-        <td><?php echo $row['id']?></td>
-        <td><?php echo $row['image']?></td>
-        <td><?php echo $row['name']?></td>
-        <td><?php echo $row['category_id']?></td>
-        <td><?php echo $row['trademark']?></td>
-        <td><?php echo $row['price']?></td>
-        <td>
-            <a href= "index.php?controller=staff&action=getEdit&ID=<?php echo $row['ID']?>">Edit</a>
-            <a style = 'color:red;' onclick = "return confirm('Are you sure?')";  href= "index.php?controller=staff&action=deleteID&ID=<?php echo $row['ID']?>">Delete</a>
-            <!-- <a href= "index.php?action=getView&ID=<?php echo $row['ID']?>">View</a> -->
-        </td>
+        <td><img class="rounded float-start" style = 'width:120px;height:100px' src= "../<?php echo $row['anh'];?>"></td>
+    <tr class="table-dark">
+        <th scope="col">Mô tả</th>
     </tr>
-</table>
+    <tr>
+        <td><?// echo $row['mota']; ?> </td>
+    </tr>
+</table> -->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-12">
+                <h1 class = "text-center"><?php echo $row['name']?></h1>
+                <blockquote class="blockquote"><?php echo $row['mota']?></blockquote>
+                <div class="card" style="width: 60rem;">
+                    <img src="<?php echo $row['image']?>" class="card-img-top" alt="...">
+                    <div class="card-body" style="height: 5rem; text-align: center;">
+                        <p class="card-text" ><?php echo $row['name']?></p>
+                    </div>
+                </div>
+                <p><img src="<?php // echo $row['Img_patch']?>"></p>
+                <p><?php // echo $row['Content']?></p>
+                <p><?php // echo $row['Content']?></p>
+                <blockquote class="blockquote">
+                    Post by Admin ON <?php // echo $row['Create_date']?>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

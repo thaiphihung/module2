@@ -10,7 +10,7 @@ class Category
         // xử lí tìm kiếm
         if (isset($_GET["s"])) {
             $s1 = $_GET["s"];
-            $sql .= " WHERE categories.category_name LIKE '%$s1%'";
+            $sql .= " WHERE categories.name LIKE '%$s1%'";
         }
         $sql .= " ORDER BY categories.id DESC";
 
@@ -66,13 +66,13 @@ class Category
     public static function store($data, &$error)
     {
         global $conn;
-        $name = $data['category_name'];
+        $name = $data['name'];
         $ANH = '';
 
 
         // Kiểm tra tên khoa hợp lệ
         if (empty($name)) {
-            $error['name1'] = 'Vui lòng nhập tên Khoa!';
+            $error['name'] = 'Vui lòng nhập tên Khoa!';
             return false;
         }
 
@@ -84,9 +84,9 @@ class Category
         }
 
         $sql = "INSERT INTO `categories` 
-            (`category_name`,`image`) 
+            (`name`) 
             VALUES 
-            ('$name','$ANH')";
+            ('$name')";
         //Thuc hien truy van
         $conn->exec($sql);
         return true;
@@ -96,37 +96,37 @@ class Category
     public static function update($id, $data, &$error)
     {
         global $conn;
-        $name = $data['category_name'];
-        if (isset($_FILES['image']) && is_uploaded_file($_FILES['image']['tmp_name'])) {
-            // Đường dẫn thư mục tải lên
-            $uploadDir = ROOT_DIR . '/public/uploads/';
-            // Xóa ảnh cũ nếu có
-            $sql = "SELECT `image` FROM `categories` WHERE `id` = $id";
-            $stmt = $conn->prepare($sql);
-            $stmt->execute();
-            $oldImage = $stmt->fetchColumn(0);
-            if ($oldImage && file_exists($uploadDir . $oldImage)) {
-                unlink($uploadDir . $oldImage);
-            }
-            // Di chuyển ảnh mới vào thư mục đích
-            $newImage = $uploadDir . $_FILES['image']['name'];
-            move_uploaded_file($_FILES['image']['tmp_name'], $newImage);
-            $image = '/public/uploads/' . basename($_FILES['image']['name']);
-        } else {
-            // Không có ảnh mới được tải lên, giữ nguyên ảnh cũ
-            $sql = "SELECT `image` FROM `categories` WHERE `id` = $id";
-            $stmt = $conn->prepare($sql);
-            $stmt->execute();
-            $image = $stmt->fetchColumn(0);
-        }
+        $name = $data['name'];
+        // if (isset($_FILES['image']) && is_uploaded_file($_FILES['image']['tmp_name'])) {
+        //     // Đường dẫn thư mục tải lên
+        //     $uploadDir = ROOT_DIR . '/public/uploads/';
+        //     // Xóa ảnh cũ nếu có
+        //     $sql = "SELECT `image` FROM `categories` WHERE `id` = $id";
+        //     $stmt = $conn->prepare($sql);
+        //     $stmt->execute();
+        //     $oldImage = $stmt->fetchColumn(0);
+        //     if ($oldImage && file_exists($uploadDir . $oldImage)) {
+        //         unlink($uploadDir . $oldImage);
+        //     }
+        //     // Di chuyển ảnh mới vào thư mục đích
+        //     $newImage = $uploadDir . $_FILES['image']['name'];
+        //     move_uploaded_file($_FILES['image']['tmp_name'], $newImage);
+        //     $image = '/public/uploads/' . basename($_FILES['image']['name']);
+        // } else {
+        //     // Không có ảnh mới được tải lên, giữ nguyên ảnh cũ
+        //     $sql = "SELECT `name` FROM `categories` WHERE `id` = $id";
+        //     $stmt = $conn->prepare($sql);
+        //     $stmt->execute();
+        //     $image = $stmt->fetchColumn(0);
+        // }
 
         // Kiểm tra tên khoa hợp lệ
         if (empty($name)) {
-            $error['category_name'] = 'Vui lòng nhập tên Khoa!';
+            $error['name'] = 'Vui lòng nhập tên Khoa!';
             return false;
         }
 
-        $sql = "UPDATE `categories` SET `category_name` = '$name',`image` = '$image'WHERE `id` = $id";
+        $sql = "UPDATE `categories` SET `name` = '$name' WHERE `id` = $id";
         //Thuc hien truy van
         $conn->exec($sql);
         return true;

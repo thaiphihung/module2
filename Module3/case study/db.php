@@ -1,5 +1,5 @@
 <?php
-define('ROOT_URL','http://localhost/M3/case study/');
+define('ROOT_URL','http://localhost/M3/case study');
 define('ROOT_DIR', dirname(__FILE__) );
 
 $username   = 'root';

@@ -51,6 +51,7 @@ class CategoryController extends Controller {
     public function edit(){
         $id = $_GET['id'];
         $row = Category::find($id);
+
         // Truyen xuong view
         require_once 'views/category/edit.php';
     }

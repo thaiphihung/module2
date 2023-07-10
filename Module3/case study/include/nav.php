@@ -2,7 +2,7 @@
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
     </button>
-    <?php // include_once 'View/searchForm.php'?>
+    <?php include_once 'views/searchForm.php'?>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown no-arrow d-sm-none">
             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"

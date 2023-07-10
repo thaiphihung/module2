@@ -3,7 +3,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Manager</div>
+        <div class="sidebar-brand-text mx-3">Trang Chủ</div>
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
@@ -13,13 +13,21 @@
         </a>
     </li>
     <li class="nav-item active">
+        <a class="nav-link" href="index.php?controller=customer">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Khách Hàng</span>
+        </a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="index.php?controller=order">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Đơn Hàng</span>
+        </a>
+    </li>
+    <li class="nav-item active">
         <a class="nav-link" href="index.php?controller=category">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Thể Loại</span>
         </a>
     </li>
-    <div class="sidebar-card d-none d-lg-flex">
-        <p class="text-center mb-2"><strong>Manager Staff </strong> is program with premium features, components, and more!</p>
-        <a class="btn btn-success btn-sm" href="https://www.facebook.com/profile.php?id=100013306712347">Contact us</a>
-    </div>
 </ul>

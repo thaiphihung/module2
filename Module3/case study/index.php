@@ -2,7 +2,7 @@
     include_once 'include/header.php';
     include_once 'db.php';
     include_once 'controllers/CategoryController.php';
-    $controller = isset($_GET['controller'])?$_GET['controller']: "staff";
+    $controller = isset($_GET['controller'])?$_GET['controller']: "product";
     $action = isset($_GET['action'])?$_GET['action']: "index" ;
 ?>
 <body id="page-top">
